@@ -3,8 +3,17 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
-
+  infinite = math.inf
+  # Check if we have the names of ingredients in both the ingredients and recipe
+  # dictionaries. If not, 0 batches can be made. 
+  for name_of_ingredient in recipe:
+    if name_of_ingredient not in ingredients:
+      return 0
+    else:
+      batches = ingredients[name_of_ingredient] // recipe[name_of_ingredient]
+      if batches < infinite:
+        infinite = batches
+  return infinite
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
